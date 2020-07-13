@@ -1,14 +1,24 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import "font-awesome/css/font-awesome.min.css";
+import LogInForm from './container/LogInForm/index'
 
-
-
- class App extends Component {
+class App extends Component {
   render() {
     return (
-      <div className="App"> 
-      <header className="App-header">Log in page</header> </div>
+      <div>
+        <h1 className="App-header">
+          Log in page
+        </h1>{" "}
+       <i class="fa fa-user"></i>
+        <div className ="Log-in-form">
+       <input type ="text" placeholder="User Name"/>
+       <input type ="text" placeholder="password"/>
+       <button>Log in</button>
+       </div>
+          </div>
+      
     );
   }
 }
-export default App
+export default App;
