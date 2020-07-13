@@ -13,9 +13,10 @@ class App extends Component {
        <i class="fa fa-user"></i>
         <div className ="Log-in-form">
        <input type ="text" placeholder="User Name"/>
+       <br/>
        <input type ="text" placeholder="password"/>
-       <button>Log in</button>
        </div>
+       <button>Log in</button>
           </div>
       
     );
