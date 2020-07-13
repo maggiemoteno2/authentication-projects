@@ -36,5 +36,15 @@ input[type=text] {
 }
 
 button{
-  margin : 6em 13em 73em 115em;
+  margin:2em 0em 63em 91em;
+  background-color:blue; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+  cursor: pointer;
 }
