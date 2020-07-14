@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import {NavLink } from 'react-router-dom';
+import LoggedInMessage from './../LoggedInMessage'
 
-export default class componentName extends Component {
+export default class index extends Component {
   render() {
     return (
       <div>  <h1 className="App-header">
@@ -12,7 +14,12 @@ export default class componentName extends Component {
    <br/>
    <input type ="text" placeholder="password"/>
    </div>
-   <button>Log in</button> </div>
+  
+     <NavLink  to={<LoggedInMessage/>}> 
+     <button>Log in</button>
+     </NavLink>
+  
+   </div>
     );
   }
 }

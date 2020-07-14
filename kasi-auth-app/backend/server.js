@@ -1,5 +1,16 @@
 const express = require('express')
-const app=express()
+const server=express()
+const bodyParser = require('body-parser');
+const session = require('express-session');
 const port = process.env.PORT | 3001
+const {logIn} = require('./routes/logInRoute')
+const {MongoServer} = require('./config/dbConnection')
 
-app.listen(port)
+
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true })); 
+
+server.listen(port)
+
+logIn(server)
+MongoServer()
