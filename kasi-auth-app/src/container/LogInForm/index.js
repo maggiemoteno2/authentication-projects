@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import {NavLink } from 'react-router-dom';
 import LoggedInMessage from './../LoggedInMessage'
+import history from './../../history/index'
 
 export default class index extends Component {
+
+  change=()=>{
+   history.push("/dashboard") 
+  }
+
   render() {
     return (
       <div>  <h1 className="App-header">
@@ -16,7 +22,7 @@ export default class index extends Component {
    </div>
   
      <NavLink  to={<LoggedInMessage/>}> 
-     <button>Log in</button>
+     <button onClick={() => this.change()}>Log in</button>
      </NavLink>
   
    </div>

@@ -13,4 +13,4 @@ server.use(bodyParser.urlencoded({ extended: true }));
 server.listen(port)
 
 logIn(server)
-MongoServer()
+MongoServer(server)
