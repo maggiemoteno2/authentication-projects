@@ -4,7 +4,16 @@ import LoggedInMessage from './../LoggedInMessage'
 import history from './../../history/index'
 
 export default class index extends Component {
+  constructor(){
+    super()
+    this.state={
+      name:"",
+      password:""
 
+    }
+  }
+
+ 
   change=()=>{
    history.push("/dashboard") 
   }
