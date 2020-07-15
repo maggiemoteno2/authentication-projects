@@ -3,6 +3,7 @@ import { Route, Switch, Router, NavLink } from "react-router-dom";
 import LoggedInMessage from './../container/LoggedInMessage'
 import LogInForm from './../container/LogInForm/index'
 import history from './../history/index'
+import Dashboard from './../container/Dashboard/dashboard'
 export const createRoutes = () => {
   return (
     <Router history={history}>
@@ -18,6 +19,12 @@ export const createRoutes = () => {
         strict
         render={(props) => <LogInForm {...props} />}
       />
+      <Route
+          exact
+          path="/dashboard"
+          render={props => <Dashboard{...props} />}
+        />
+
     </Router>
   );
 };

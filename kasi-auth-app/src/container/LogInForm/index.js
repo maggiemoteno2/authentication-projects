@@ -11,19 +11,23 @@ export default class index extends Component {
 
   render() {
     return (
-      <div>  <h1 className="App-header">
+      <div>  <h1>
       Log in page
     </h1>{" "}
+    <div className="App-header">
    <i class="fa fa-user"></i>
     <div className ="Log-in-form">
-   <input type ="text" placeholder="User Name"/>
+   <input type ="text" placeholder="User Name" required/>
    <br/>
-   <input type ="text" placeholder="password"/>
+   <input type ="text" placeholder="password" required/>
    </div>
   
      <NavLink  to={<LoggedInMessage/>}> 
-     <button onClick={() => this.change()}>Log in</button>
+     <div >
+     <button className="log-in-button" onClick={() => this.change()}>Login</button>
+     </div>
      </NavLink>
+   </div>
   
    </div>
     );

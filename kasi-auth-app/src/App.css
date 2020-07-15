@@ -4,15 +4,19 @@
 
 
 
-body{
+.land-in-page{
   background-color: #282c34;
+  height: 234em;
 }
 
 .App-header {
   margin-bottom: 6em;
   min-height: 10vh;
   display: flex;
-  color: white; 
+  color: rgb(5, 4, 4); 
+  border: 3px solid #f1f1f1;
+  height: 44em;
+ 
 }
 
 i{
@@ -32,16 +36,16 @@ input[type=text] {
   position: relative;
 }
 .Log-in-form{
-  margin-left: 57em;
+  margin:20em 1em 63em -22em;
 }
 
-button{
+.log-in-button{
 
-  margin: 3em 1em 69em 68em;
+  margin:30em -25em 467em -28em;
   background-color: blue;
   border: 2px solid #4CAF50;
   color: white;
-  padding: 19px 32px;
+  padding: 12px 110px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
