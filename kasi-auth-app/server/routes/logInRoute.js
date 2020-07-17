@@ -1,4 +1,4 @@
-const LogInPath = require('./../models/logInModel')
+const LogInPath = require('../models/logInModel')
 
 const logIn = function(server){
     server.post("/loggedIn",async(req,res)=>{
