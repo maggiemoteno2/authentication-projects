@@ -1,22 +1,23 @@
 const Register = require('./../models/registryModel')
+var bcrypt = require('bcrypt');
+
+
 
 const register = function(server){
    server.post("/register",async(req,res)=>{
-       try{
-          const registerSchema = new Register({
-            firstName: req.body.firstName,
-            password: req.body.password
-          })
-          const registeryDetails = await registerSchema.save({firstName: req.body.firstName,
-            password: req.body.password})
-            res.status(201).json(registeryDetails)
-       }catch(e){
-           console.log(e)
-       }
+         
+try {
+  req.body.password = bcrypt.hashSync(req.body.password, 10);
+  var registeryDetails = new Register(req.body);
+  var result = await registeryDetails .save();
+  res.send(result);
+} catch (error) {
+  response.status(500).send(error);
+}
+       
    })
 }
 
-    
-    
-    
+
+
     module.exports = {register}

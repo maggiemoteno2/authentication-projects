@@ -1,20 +1,19 @@
 const LogInPath = require('../models/logInModel')
-
+var bcrypt = require('bcrypt');
 const logIn = function(server){
-    server.post("/loggedIn",async(req,res)=>{
-        try {
-            
-            const logInSchema = new LogInPath({
-              firstName: req.body.firstName,
-              password: req.body.password
-            });
-            const logInDetails =logInSchema.save({firstName: req.body.firstName , password:req.body.password});
-            res.status(201).json(logInSchema);
-            console.log(logInDetails)
-          }catch(e){
-        console.log(e)
-          }
-console.log()
+    server.post("/logIn",async(req,res)=>{
+      try {
+        var user = await LogInPath.findOne({ firstName: req.body.firstName}).exec();
+        if(!user) {
+            return res.status(400).send({ message: "The username does not exist" });
+        }
+        if(!bcrypt.compareSync(req.body.password, user.password)) {
+            return res.status(400).send({ message: "The password is invalid" });
+        }
+        res.send({ message: "The username and password combination is correct!" });
+      } catch (error) {
+        response.status(500).send(error);
+      }
     }) 
 
     
