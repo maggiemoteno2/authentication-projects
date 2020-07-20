@@ -1,0 +1,56 @@
+.App {
+  text-align: center;
+}
+
+
+
+.land-in-page{
+  background-color: #282c34;
+  height: 234em;
+}
+
+.App-header {
+  margin-bottom: 6em;
+  min-height: 10vh;
+  display: flex;
+  color: rgb(5, 4, 4); 
+  border: 3px solid #f1f1f1;
+  height: 44em;
+ 
+}
+
+i{
+  font-size:12rem !important;
+  margin-left: 6em;
+  
+}
+input[type=text] {
+  all: unset;
+  width: 600px;
+  height: 60px;
+  border: 1px solid grey;
+  padding-left: 55px;
+  font-size: 18px;
+  color: rgb(7, 6, 6);
+  font-family: sans-serif;
+  position: relative;
+}
+.Log-in-form{
+  margin:20em 1em 63em -22em;
+}
+
+.log-in-button{
+
+  margin:30em -25em 467em -28em;
+  background-color: blue;
+  border: 2px solid #4CAF50;
+  color: white;
+  padding: 12px 110px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 12%;
+  cursor: pointer;
+
+}

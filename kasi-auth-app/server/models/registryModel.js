@@ -6,7 +6,6 @@ var RegisterSchema = mongoose.Schema({
 });
 
 
-
 var RegistryModel = mongoose.model("RegistryModel", RegisterSchema);
 
 module.exports = RegistryModel;
