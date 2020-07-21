@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
-const MONGOURI = "mongodb+srv://Maggie-Moteno:Maggie-Thabo2000@maggie1-qiqvh.mongodb.net/userLogInDetails?retryWrites=true&w=majority";
-
+require('dotenv').config()
 
 const MongoServer = async () => {
     try {
-      await mongoose.connect(MONGOURI, {
+      await mongoose.connect(process.env.MONGOURI, {
         useNewUrlParser: true, useUnifiedTopology: true
       });
     } catch (e) {
