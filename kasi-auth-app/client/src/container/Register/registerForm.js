@@ -15,7 +15,6 @@ class registeryForm extends Component {
   }
 
   userInformation = (firstName, password) => {
-    console.log(firstName,password)
     this.props.register(firstName, password);
   };
   change = () => {

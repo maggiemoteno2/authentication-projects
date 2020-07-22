@@ -12,9 +12,7 @@ export const register=(firstName,password) =>{
               password
             });
             const token = data.token;
-            console.log(token)
             const user = jwt_decode(token); 
-            console.log(user)
             localStorage.setItem('token', token);
    
           dispatch({
