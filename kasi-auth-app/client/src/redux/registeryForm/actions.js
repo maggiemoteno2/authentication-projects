@@ -1,5 +1,7 @@
-import {LOG_IN } from './../actionsTypes'
+import {REGISTER } from './../actionsTypes'
 import axios from "axios"
+import jwt from 'jwt-decode'
+import * as jwt_decode from 'jwt-decode';
 
 export const register=(firstName,password) =>{
     return async dispatch => {
@@ -9,10 +11,15 @@ export const register=(firstName,password) =>{
             firstName,
               password
             });
+            const token = data.token;
+            console.log(token)
+            const user = jwt_decode(token); 
+            console.log(user)
+            localStorage.setItem('token', token);
    
           dispatch({
-            type: LOG_IN,
-            payload:{ ...data} 
+            type: REGISTER,
+            payload:{...data,token,user}
           });
         } catch (e) {
           console.log(e);

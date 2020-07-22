@@ -14,8 +14,7 @@ const register = function(server){
     },
     function (err, user) {
       if (err) return res.status(500).send("There was a problem registering the user.")
-      // create a token
-      var token = jwt.sign({ id: user._id }, process.env.SECRET, {
+      var token = jwt.sign({ id: user._id ,firstName:user.firstName}, process.env.SECRET, {
         expiresIn: 86400 
       });
       res.status(200).send({ auth: true, token: token });
@@ -23,17 +22,6 @@ const register = function(server){
        
    })
 
-
-   server.get('/register', function(req, res,user) {
-    Register.findById(user.id, 
-      { password: 0 },
-      function (err, user) {
-        if (err) return res.status(500).send("There was a problem finding the user.");
-        if (!user) return res.status(404).send("No user found.");
-        
-        res.status(200).send(user);
-    });
-  });
 }
 
 

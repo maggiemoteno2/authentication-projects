@@ -1,11 +1,11 @@
-import {LOG_IN} from "./../actionTypes";
+import {REGISTER} from './../actionsTypes'
 const initialState = {
   userDetails:[],
 };
 
 export default function details( state = initialState , action) {
   switch (action.type) {
-      case LOG_IN :{
+      case REGISTER :{
           return {
               ...state,
               userDetails:[...state.userDetails, action.payload],
