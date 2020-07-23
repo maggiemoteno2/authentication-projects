@@ -12,6 +12,7 @@ const logIn = function (server) {
       if (!user) return res.status(404).send('No user found.');
       
       var passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
+      
       if (!passwordIsValid) return res.status(401).send({ auth: false, token: null });
       
       var token = jwt.sign({ id: user._id }, process.env.SECRET, {

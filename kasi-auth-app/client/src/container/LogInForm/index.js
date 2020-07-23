@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {NavLink } from 'react-router-dom';
+import {NavLink, Redirect } from 'react-router-dom';
 import LoggedInMessage from './../LoggedInMessage';
 import { connect } from "react-redux";
 import history from './../../history/index'
@@ -18,12 +18,12 @@ class logInForm extends Component {
 
   userLoggedInInformation =(firstName,password,email)=>{
 
-      this.props.logIn(firstName,password,email)
+      return this.props.logIn(firstName,password,email) 
     
   }
  
   change=()=>{
-   history.push("/dashboard") 
+   history.push("/logIn") 
   }
   handleChange = (event) => {
     const value = event.target.value;
@@ -48,11 +48,11 @@ class logInForm extends Component {
    <input type ="text" name="email" onChange={this.handleChange} placeholder="email" required/>
    </div>
   
-     <NavLink  to={<LoggedInMessage/>}> 
+
      <div >
      <button className="log-in-button" onClick={() => this.userLoggedInInformation(firstName,password,email)}>Login</button>
      </div>
-     </NavLink>
+   
    </div>
   
    </div>

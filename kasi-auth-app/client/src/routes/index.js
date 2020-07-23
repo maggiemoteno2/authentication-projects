@@ -8,6 +8,7 @@ import Register from './../container/Register/registerForm'
 export const createRoutes = () => {
   return (
     <Router history={history}>
+     
       <Route
         path="/"
         exact

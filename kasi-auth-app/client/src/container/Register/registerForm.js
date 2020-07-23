@@ -4,6 +4,7 @@ import history from "./../../history/index";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { register } from "./../../redux/registeryForm/actions";
+import LogInForm from './../LogInForm/index'
 
 class registeryForm extends Component {
   constructor() {
@@ -57,7 +58,6 @@ class registeryForm extends Component {
             required
           />
 
-          <NavLink to={<LoggedInMessage />}>
             <div>
               <button
                 className="log-in-button"
@@ -66,7 +66,6 @@ class registeryForm extends Component {
                 register
               </button>
             </div>
-          </NavLink>
         </div>
       </div>
     );

@@ -2,6 +2,8 @@ const Register = require('./../models/registryModel')
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 require('dotenv').config()
+const {logIn} = require('./logInRoute')
+
 
 
 const register = function(server){
@@ -19,6 +21,7 @@ const register = function(server){
         expiresIn: 86400 
       });
       res.status(200).send({ auth: true, token: token });
+      res.redirect("/logIn")
     }); 
        
    })
