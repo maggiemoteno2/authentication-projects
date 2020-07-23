@@ -1,24 +1,39 @@
 import React, { Component } from 'react';
 import {NavLink } from 'react-router-dom';
-import LoggedInMessage from './../LoggedInMessage'
+import LoggedInMessage from './../LoggedInMessage';
+import { connect } from "react-redux";
 import history from './../../history/index'
+import {logIn} from './../../redux/logInForm/actions'
 
-export default class index extends Component {
+class logInForm extends Component {
   constructor(){
     super()
     this.state={
       name:"",
-      password:""
+      password:"",
+      email:""
 
     }
   }
 
+  userLoggedInInformation =(firstName,password,email)=>{
+
+      this.props.logIn(firstName,password,email)
+    
+  }
  
   change=()=>{
    history.push("/dashboard") 
   }
+  handleChange = (event) => {
+    const value = event.target.value;
+    this.setState({ [event.target.name]: value });
+   
+  };
+
 
   render() {
+    const { firstName, password,email} = this.state;
     return (
       <div>  <h1>
       Log in page
@@ -26,14 +41,16 @@ export default class index extends Component {
     <div className="App-header">
    <i class="fa fa-user"></i>
     <div className ="Log-in-form">
-   <input type ="text" placeholder="User Name" required/>
+   <input type ="text"name="firstName" onChange={this.handleChange} placeholder="firstName" required/>
    <br/>
-   <input type ="text" placeholder="password" required/>
+   <input type ="text" name="password" onChange={this.handleChange} placeholder="password" required/>
+   <br/>
+   <input type ="text" name="email" onChange={this.handleChange} placeholder="email" required/>
    </div>
   
      <NavLink  to={<LoggedInMessage/>}> 
      <div >
-     <button className="log-in-button" onClick={() => this.change()}>Login</button>
+     <button className="log-in-button" onClick={() => this.userLoggedInInformation(firstName,password,email)}>Login</button>
      </div>
      </NavLink>
    </div>
@@ -41,4 +58,18 @@ export default class index extends Component {
    </div>
     );
   }
-}
+};
+const mapStateToProps = (state) => ({
+  user: state.logInForm.user,
+});
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logIn: (firstName, password,email) => {
+      dispatch(logIn(firstName, password,email));
+    },
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(logInForm );

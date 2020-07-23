@@ -1,6 +1,6 @@
 import {LOG_IN } from './../actionsTypes'
 const initialState = {
-  userDetails: [],
+  user: [],
 };
 
 export default function userDetails( state = initialState , action) {
@@ -8,7 +8,7 @@ export default function userDetails( state = initialState , action) {
       case  LOG_IN: {
           return {
               ...state,
-              userDetails: [...state.userDetails, action.payload],
+              user: [...state.userDetails, action.payload],
             };
         }
         default: {

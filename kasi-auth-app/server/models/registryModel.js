@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 var RegisterSchema = mongoose.Schema({
   firstName: { type: String , required :true},
   password: { type: String, min: 15, required : true},
+  email:{ type: String , required:true}
 });
 
 

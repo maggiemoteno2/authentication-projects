@@ -10,11 +10,12 @@ const register = function(server){
   
     Register.create({
       firstName : req.body.firstName ,
-      password : hashedPassword
+      password : hashedPassword,
+      email : req.body.email,
     },
     function (err, user) {
       if (err) return res.status(500).send("There was a problem registering the user.")
-      var token = jwt.sign({ id: user._id ,firstName:user.firstName}, process.env.SECRET, {
+      var token = jwt.sign({ id: user._id ,firstName:user.firstName,email:user.email,}, process.env.SECRET, {
         expiresIn: 86400 
       });
       res.status(200).send({ auth: true, token: token });

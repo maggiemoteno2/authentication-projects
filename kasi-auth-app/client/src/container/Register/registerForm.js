@@ -11,11 +11,12 @@ class registeryForm extends Component {
     this.state = {
       firstName: "",
       password: "",
+      email:""
     };
   }
 
-  userInformation = (firstName, password) => {
-    this.props.register(firstName, password);
+  userInformation = (firstName, password,email) => {
+    this.props.register(firstName, password,email);
   };
   change = () => {
     history.push("/register");
@@ -27,7 +28,7 @@ class registeryForm extends Component {
   };
 
   render() {
-    const { firstName, password} = this.state;
+    const { firstName, password,email} = this.state;
     return (
       <div className="App-header">
         <i class="fa fa-user"></i>
@@ -47,12 +48,20 @@ class registeryForm extends Component {
             placeholder="password"
             required
           />
+          <br/>
+           <input
+            type="text"
+            onChange={this.handleChange}
+            name="email"
+            placeholder="Email"
+            required
+          />
 
           <NavLink to={<LoggedInMessage />}>
             <div>
               <button
                 className="log-in-button"
-                onClick={() => this.userInformation(firstName, password)}
+                onClick={() => this.userInformation(firstName, password,email)}
               >
                 register
               </button>
@@ -69,8 +78,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    register: (firstName, password) => {
-      dispatch(register(firstName, password));
+    register: (firstName, password,email) => {
+      dispatch(register(firstName, password,email));
     },
   };
 };
